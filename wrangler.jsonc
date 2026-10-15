@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "idea-synthesis-automation",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-14",
+  "workflows": [
+    {
+      "name": "idea-synthesis",
+      "binding": "IDEA_WORKFLOW",
+      "class_name": "IdeaSynthesisWorkflow",
+      "schedules": ["0 9 * * *"]
+    }
+  ]
+}
