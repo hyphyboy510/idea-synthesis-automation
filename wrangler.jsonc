@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "idea-synthesis-automation",
   "main": "src/index.ts",
-  "compatibility_date": "2026-10-14",
+  "compatibility_date": "2026-11-11",
   "workflows": [
     {
       "name": "idea-synthesis",
