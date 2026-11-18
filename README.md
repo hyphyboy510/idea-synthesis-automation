@@ -1,30 +1,23 @@
-# Idea Synthesis Automation
+# Idea Synthesis Automation — Refined Iteration
 
-One repo for creative iteration automation.
+One repo for your automation. Synthesize similar category methods into dual-mirror apps (Solan creative / Lumari grounded).
 
-Synthesize similar category methods/formulas/strategies into dual-mode (mirror) apps.
+## Auto-Deploy
+This repo is the single source. Push updates → deploy with Wrangler or set GitHub Action.
 
-Uses Cloudflare Workers + Workflows for durable multi-step execution, retries, human-in-loop, and sales pipelines.
+## How to Get a Sale (Solopreneur Steps)
+1. Deploy free MVP on Cloudflare Workers Free (100k req/day).
+2. POST to /synthesize with category + methods → get 3 options + hidden dual idea.
+3. Approval gate in Workflow waits for human yes → then logs telemetry.
+4. Mirror app: free synthesizer + paid premium refinements (upgrade to $5/mo Paid for scale/logs).
+5. Use Email Routing or Stripe for checkout; Workflow handles retries/durability.
 
-## Quick Start
+## Telemetry Audit Log
+Every run logs JSON to console (view in Cloudflare dashboard Observability).
 
-```bash
-npm create cloudflare@latest . -- --template "cloudflare/workflows-starter"
-# or deploy the skeleton
-npx wrangler deploy
-```
+## Current Structure
+- Durable multi-step with human-in-loop for sales execution.
+- Duality: creative spontaneous + grounded correction.
+- Ready for Analytics Engine binding for deeper stats.
 
-## Structure
-
-- `src/workflow.ts`: Durable idea synthesis workflow
-- Dual-mode: Solan (creative hyphy) / Lumari (grounded refinement)
-- Telemetry: Built-in Workflows observability
-
-## Get a Sale
-
-1. Free tier MVP (100k req/day)
-2. Deploy dual app (e.g. idea synthesizer + mirror sales tracker)
-3. Trigger invoice/email workflow on cart checkout (see examples)
-4. Upgrade to $5/mo Paid for scale
-
-Auto-deploys iterations via this repo.
+Last refined: 2026-11-17
