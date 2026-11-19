@@ -1,23 +1,23 @@
-# Idea Synthesis Automation — Refined Iteration
+# Idea Synthesis Automation — Refined & Modernized Iteration
 
-One repo for your automation. Synthesize similar category methods into dual-mirror apps (Solan creative / Lumari grounded).
+One repo for automation. Synthesizes similar category methods/formulas/strategies into dual-mirror apps (Solan creative spontaneous / Lumari grounded correction).
 
 ## Auto-Deploy
-This repo is the single source. Push updates → deploy with Wrangler or set GitHub Action.
+Push to this repo. Deploy with Wrangler or GitHub Action. Cloudflare Workers + Workflows for durable execution.
 
 ## How to Get a Sale (Solopreneur Steps)
-1. Deploy free MVP on Cloudflare Workers Free (100k req/day).
-2. POST to /synthesize with category + methods → get 3 options + hidden dual idea.
-3. Approval gate in Workflow waits for human yes → then logs telemetry.
-4. Mirror app: free synthesizer + paid premium refinements (upgrade to $5/mo Paid for scale/logs).
-5. Use Email Routing or Stripe for checkout; Workflow handles retries/durability.
+1. Deploy free on Workers Free (100k req/day).
+2. Hit /ui or POST /synthesize with category + methods → get 3 options + hidden dual idea.
+3. Workflow waits on approval event (human yes) then logs telemetry.
+4. Mirror: free synthesizer + paid $5 premium refinements via Stripe Checkout / Whop.
+5. Structure executes with retries; upgrade Paid plan for scale/logs/Analytics Engine.
 
 ## Telemetry Audit Log
-Every run logs JSON to console (view in Cloudflare dashboard Observability).
+Every run logs JSON (view in dashboard Observability). Stats: steps, durable, dual lanes, sales ready.
 
-## Current Structure
-- Durable multi-step with human-in-loop for sales execution.
-- Duality: creative spontaneous + grounded correction.
-- Ready for Analytics Engine binding for deeper stats.
+## Duality Structure
+- Solan: hyphy sideshow energy, free gems.
+- Lumari: risk bottlenecks named, momentum kept, sales gate.
+- Hidden: silent audit lane for funnel optimization.
 
-Last refined: 2026-11-17
+Last refined: 2026-11-18

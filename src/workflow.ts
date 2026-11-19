@@ -2,7 +2,7 @@ import { WorkflowEntrypoint, WorkflowStep, WorkflowEvent } from "cloudflare:work
 
 type Params = {
   category: string;
-  methods: string[]; // similar category methods/formulas/strategies
+  methods: string[];
   saleIntent?: boolean;
 };
 
@@ -10,26 +10,23 @@ export class IdeaSynthesisWorkflow extends WorkflowEntrypoint<any, Params> {
   async run(event: WorkflowEvent<Params>, step: WorkflowStep) {
     const { category, methods = [], saleIntent = true } = event.payload;
 
-    // Step 1: Synthesize dual-mirror options (Solan creative + Lumari refined)
     const synthesis = await step.do("dual-synthesis", async () => {
+      const mixes = methods.slice(0, 3).join(" + ");
       const options = [
-        `Solan Hyphy Mix: Spontaneous ${category} gem from ${methods.slice(0,2).join(' + ')} — sideshow energy for free MVP`,
-        `Lumari Grounded: Risk-noted refined version keeping momentum, with bottlenecks called out`,
-        `Mirror Duality App: Free synthesizer lane mirrored by paid premium refinement lane`
+        `Solan Hyphy Gem: Spontaneous sideshow mix of ${mixes} into free ${category} MVP — pure Oakland energy`,
+        `Lumari Grounded Refinement: Modernized version with risk bottlenecks named, momentum preserved for sales structure`,
+        `Dual Mirror App: Free creative synthesizer lane mirrored by paid premium refinement + telemetry dashboard`
       ];
-      const hidden = "Surprise: Silent audit lane that logs every synthesis as telemetry for sales funnel optimization";
+      const hidden = "Surprise gem: Silent audit telemetry lane that feeds sales funnel optimization and dual-read artifacts";
       return {
-        dual: {
-          solan: options[0],
-          lumari: options[1]
-        },
+        dual: { solan: options[0], lumari: options[1] },
         options,
         hidden,
-        category
+        category,
+        synthesizedFrom: methods
       };
     });
 
-    // Step 2: Human-in-loop for sale approval (structure execution)
     if (saleIntent) {
       await step.waitForEvent("sale-approval", {
         type: "approved",
@@ -37,23 +34,22 @@ export class IdeaSynthesisWorkflow extends WorkflowEntrypoint<any, Params> {
       });
     }
 
-    // Step 3: Log telemetry / audit
     const audit = await step.do("telemetry-audit", async () => {
       const log = {
         timestamp: new Date().toISOString(),
         status: "executed",
         synthesisId: event.instanceId,
-        salesStructure: saleIntent ? "approval-gate-ready" : "synthesis-only",
-        metrics: { steps: 3, retriesAvailable: true, durable: true }
+        salesStructure: saleIntent ? "approval-gate + checkout-ready" : "synthesis-only",
+        metrics: { stepsCompleted: 3, durable: true, retries: true, dualLanes: 2 },
+        nextSale: "Stripe Checkout or Whop link for $5 premium"
       };
-      console.log(JSON.stringify(log)); // Cloudflare logs / Analytics Engine ready
+      console.log(JSON.stringify(log));
       return log;
     });
 
-    // Step 4: Optional deploy trigger note
-    await step.do("scale-note", async () => {
-      return { next: "Push to this repo triggers auto-deploy via Wrangler/GitHub Action; upgrade Paid plan for scale" };
-    });
+    await step.do("scale-modernize", async () => ({
+      next: "One repo push → auto-deploy. Upgrade to Paid for Analytics Engine + higher concurrency. Mirror duality keeps free + paid alive."
+    }));
 
     return { ...synthesis, audit };
   }
