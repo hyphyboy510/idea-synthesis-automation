@@ -21,3 +21,8 @@ Every run logs JSON (view in dashboard Observability). Stats: steps, durable, du
 - Hidden: silent audit lane for funnel optimization.
 
 Last refined: 2026-11-18
+
+
+## Automatic deploy
+
+Pushes to `main` deploy through GitHub Actions (`.github/workflows/deploy.yml`) using `cloudflare/wrangler-action`. The workflow needs two repository secrets: `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. No secrets are stored in this repo.
